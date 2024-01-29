@@ -21,10 +21,14 @@ public class PostsServiceImpl implements PostsServiceI {
     }
 
     @Override
-    public void createPost(final Posts post) {
-        Posts saved = this.postsRepository.save(post);
-        log.debug("Created POST entity with ID: " + saved.getId());
+    public Posts getPostById(String id) {
+        return this.postsRepository.findById(id).orElseThrow();
+    }
 
+    @Override
+    public void createPost(final Posts post) {
+        Posts saved = this.postsRepository.saveAndFlush(post);
+        log.debug("Created POST entity with ID: " + saved.getId());
     }
 
     public Integer getCount() {
