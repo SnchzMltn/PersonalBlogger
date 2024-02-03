@@ -1,6 +1,7 @@
 package com.snchzmltn.PersonalBlogger.Entities;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,8 +20,9 @@ import java.time.OffsetDateTime;
 public class Posts {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "id")
+    String id;
 
     OffsetDateTime createdTime;
 
@@ -36,6 +38,8 @@ public class Posts {
     String htmlContent;
 
     String textContent;
+
+    String markdownContent;
 
     String updatedBy;
 

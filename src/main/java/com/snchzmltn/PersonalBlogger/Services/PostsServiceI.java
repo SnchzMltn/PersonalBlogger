@@ -7,7 +7,9 @@ import java.util.List;
 
 @Service
 public interface PostsServiceI {
-    public List<Posts> getAllPosts();
+    List<Posts> getAllPosts();
 
-    public void createPost(final Posts posts);
+    Posts getPostById(String id);
+
+    void createPost(final Posts posts);
 }
