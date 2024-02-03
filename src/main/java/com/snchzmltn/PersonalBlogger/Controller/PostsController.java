@@ -23,12 +23,12 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api")
 @Slf4j
+@CrossOrigin(origins = "http://localhost:3000")
 public class PostsController {
 
     @Autowired
     PostsServiceImpl postsService;
 
-    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/posts")
     public ResponseEntity<List<Posts>> getAllPosts() {
         try {
